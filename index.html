@@ -1023,7 +1023,251 @@
 
   </ul>
 
-  <p><strong>Enhancement narrative:</strong> To be added.</p>
+  <details>
+  <summary style="cursor: pointer; color: #2463a0;
+    font-weight: bold; padding: 12px 0;">
+    Read Enhancement Three Narrative
+  </summary>
+
+  <h3>Artifact Description and Selection</h3>
+
+  <p>
+    The artifact selected for this enhancement is my
+    Warehouse Inventory Android application, originally
+    developed during CS 360. The application allows users
+    to create accounts, log in, and manage inventory
+    records through a local SQLite database.
+    Users can add, update, delete, and view inventory
+    items while receiving SMS notifications when
+    inventory reaches a low stock threshold.
+  </p>
+
+  <p>
+    During the previous two enhancements, I improved
+    the application's software architecture and
+    implemented searching, sorting, and restocking
+    priority functionality. For this final enhancement,
+    I focused specifically on database implementation.
+    My goal was to improve reliability, preserve
+    existing data during upgrades, and allow application
+    settings to persist rather than remaining
+    embedded within the Java source code.
+  </p>
+
+  <h3>Database Migration and Data Preservation</h3>
+
+  <p>
+    One of the most significant limitations of the
+    original database implementation involved the
+    way schema upgrades were handled.
+    The original onUpgrade() method deleted the
+    existing user and inventory tables before
+    recreating them whenever the database
+    version changed.
+  </p>
+
+  <p>
+    Although this approach satisfied the original
+    course requirements, it would not be appropriate
+    for a production application because upgrading
+    the database could permanently erase user
+    accounts and inventory records.
+  </p>
+
+  <p>
+    To address this issue, I increased the database
+    version from one to two and replaced the
+    destructive upgrade process with a migration
+    that preserves existing data.
+  </p>
+
+  <p>
+    Instead of deleting existing tables, the
+    migration creates a new app_settings table
+    while leaving the original user and inventory
+    records intact.
+  </p>
+
+  <p>
+    I tested this migration using information
+    already stored in the application.
+    After upgrading the database, I successfully
+    logged into an existing account and accessed
+    the same inventory records.
+    This confirmed that the database structure
+    could be expanded without losing existing data.
+  </p>
+
+  <h3>Persistent Application Settings</h3>
+
+  <p>
+    The new app_settings table also addressed
+    another limitation of the original application.
+    Previously, the low stock threshold used
+    by the SMS notification system and restocking
+    priority functionality was stored as a
+    constant within the application code.
+  </p>
+
+  <p>
+    This design meant that changing the threshold
+    would require modifying the source code and
+    rebuilding the application.
+  </p>
+
+  <p>
+    The enhanced database now stores the low stock
+    threshold as persistent information in SQLite.
+    I implemented database methods for retrieving
+    and updating the stored threshold and made
+    these operations available through the
+    InventoryRepository class.
+  </p>
+
+  <p>
+    This approach preserves the separation
+    between the user interface and database
+    operations established during the first
+    enhancement.
+  </p>
+
+  <p>
+    Both the SMS notification logic and restocking
+    priority algorithm now retrieve their threshold
+    from the database instead of relying on
+    constants defined within the application.
+  </p>
+
+  <h3>User Interface Integration</h3>
+
+  <p>
+    I also added a user interface option that
+    allows the low stock threshold to be modified
+    directly from the inventory screen.
+  </p>
+
+  <p>
+    Selecting the Set Low Stock Threshold button
+    opens a dialog displaying the currently
+    stored threshold and allowing the user
+    to enter a replacement value.
+  </p>
+
+  <p>
+    After saving the new value, the application
+    updates the SQLite database and immediately
+    applies the updated threshold to its
+    low stock functionality.
+  </p>
+
+  <p>
+    This improvement makes the application
+    more flexible because different users
+    and organizations may have different
+    definitions of low inventory.
+  </p>
+
+  <p>
+    It also demonstrates communication between
+    the user interface, repository layer, and
+    persistent database storage.
+    The resulting implementation provides a
+    practical example of how application
+    configuration can be managed through
+    a database rather than source code.
+  </p>
+
+  <h3>Course Outcomes Demonstrated</h3>
+
+  <p>
+    This enhancement supports the computer science
+    program outcome involving the application
+    of established computing techniques, skills,
+    and tools to develop solutions that provide
+    practical value.
+  </p>
+
+  <p>
+    The database migration demonstrates consideration
+    for data integrity and application reliability,
+    while persistent configuration improves
+    flexibility and maintainability.
+  </p>
+
+  <p>
+    By treating the database as more than a place
+    to store inventory records, I expanded its
+    responsibilities to include application
+    configuration while preserving a clear
+    separation between software components.
+  </p>
+
+  <p>
+    The implementation also establishes a
+    foundation for future enhancements.
+    Additional application settings could
+    be introduced through the settings table
+    without placing configuration values
+    directly within the activity code.
+  </p>
+
+  <h3>Testing and Reflection</h3>
+
+  <p>
+    Testing focused on confirming that the
+    database migration preserved existing
+    information and that the new settings
+    functionality operated correctly.
+  </p>
+
+  <p>
+    I verified that existing user accounts
+    remained accessible after the database
+    upgrade and that previously stored
+    inventory records were still available.
+  </p>
+
+  <p>
+    I also tested the new threshold interface
+    by updating the stored value and confirming
+    that the application applied the new setting
+    to its inventory functionality.
+  </p>
+
+  <p>
+    One of the most important lessons from
+    this enhancement was understanding the
+    importance of planning database changes
+    around information that already exists.
+  </p>
+
+  <p>
+    A database upgrade should not simply
+    create the desired structure.
+    It should also preserve existing
+    user information and maintain
+    application functionality.
+  </p>
+
+  <p>
+    I also gained a stronger understanding
+    of how persistent settings improve
+    application flexibility and how database
+    operations can be integrated without
+    tightly coupling the user interface
+    to SQLite implementation details.
+  </p>
+
+  <p>
+    Overall, this enhancement made the
+    Warehouse Inventory application more
+    reliable, configurable, and representative
+    of the database development skills
+    I have gained throughout my computer
+    science program.
+  </p>
+
+</details>
 
 </section>
 

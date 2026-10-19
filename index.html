@@ -752,7 +752,234 @@
 
   </ul>
 
-  <p><strong>Enhancement narrative:</strong> To be added.</p>
+  <details>
+  <summary style="cursor:pointer; color:#2463a0;
+    font-weight:bold; padding:12px 0;">
+    Read Enhancement Two Narrative
+  </summary>
+
+  <h3>Artifact Description and Selection</h3>
+
+  <p>
+    The artifact I selected is the Warehouse Inventory
+    Android application originally created during CS 360.
+    The application was designed to allow users to manage
+    inventory through basic functionality such as adding,
+    updating, deleting, and viewing stored items.
+    The original application also included user
+    authentication and SMS alerts for low inventory.
+  </p>
+
+  <p>
+    I selected this artifact because it provides
+    opportunities to demonstrate growth across all
+    three enhancement categories in my ePortfolio.
+    For this enhancement, I focused specifically on
+    algorithms and data structures by improving how
+    users search, organize, and prioritize inventory
+    information.
+  </p>
+
+  <h3>Search and Sorting Enhancements</h3>
+
+  <p>
+    The first improvement involved implementing a search
+    feature that allows users to search inventory records
+    by name. I implemented a linear search that examines
+    inventory items and compares their names against
+    the user's search input.
+  </p>
+
+  <p>
+    I selected this approach because the current
+    application manages a relatively small inventory.
+    Linear searching also supports partial matches,
+    allowing users to locate items as they type.
+  </p>
+
+  <p>
+    I also introduced several sorting options that
+    allow inventory records to be displayed
+    alphabetically, by quantity from lowest to
+    highest, or by quantity from highest to lowest.
+  </p>
+
+  <p>
+    These improvements make the application more
+    useful as the inventory grows. Users can quickly
+    locate specific items and organize inventory
+    information according to their immediate needs.
+  </p>
+
+  <h3>Priority Queue Implementation</h3>
+
+  <p>
+    The most significant data structure enhancement
+    was introducing a restocking priority feature
+    using Java's PriorityQueue.
+  </p>
+
+  <p>
+    I created a shared low stock threshold and used
+    the priority queue to identify inventory items
+    with quantities at or below that threshold.
+    Items with the lowest quantities receive the
+    highest restocking priority, allowing users
+    to identify which products need attention first.
+  </p>
+
+  <p>
+    This functionality also works alongside the
+    existing search feature. Users can search
+    inventory records and then apply sorting
+    or restocking logic to the filtered results.
+  </p>
+
+  <p>
+    To maintain separation of responsibilities,
+    I created an InventoryAlgorithm class that
+    handles these operations independently
+    from the database layer.
+  </p>
+
+  <p>
+    This approach builds upon the architectural
+    improvements established during my first
+    enhancement and keeps the application
+    organized as additional functionality is added.
+  </p>
+
+  <h3>Algorithm Efficiency and Design Decisions</h3>
+
+  <p>
+    This enhancement demonstrates the use of
+    different algorithms and data structures
+    depending on the problem being solved.
+  </p>
+
+  <p>
+    The application continues to use an ArrayList
+    to maintain and display inventory records.
+    Linear searching identifies matching items,
+    comparators determine sorting order, and
+    PriorityQueue organizes items according
+    to their restocking priority.
+  </p>
+
+  <p>
+    An important design decision involved
+    determining whether searching and sorting
+    should occur through SQLite queries or
+    within the application after retrieving
+    inventory records.
+  </p>
+
+  <p>
+    Database processing could become more
+    efficient if the application eventually
+    manages significantly larger inventories.
+    However, for the current scale, I selected
+    in memory processing because it allowed
+    the algorithms to remain reusable and
+    demonstrated their implementation directly
+    within the application.
+  </p>
+
+  <p>
+    The linear search has a time complexity
+    of O(n), while comparison based sorting
+    generally requires O(n log n) time.
+    The priority queue provides an efficient
+    way to repeatedly identify the next item
+    requiring attention.
+  </p>
+
+  <h3>Course Outcomes Demonstrated</h3>
+
+  <p>
+    This enhancement directly supports the third
+    course outcome by demonstrating the ability
+    to design and evaluate computing solutions
+    using algorithmic principles and appropriate
+    data structures.
+  </p>
+
+  <p>
+    I evaluated multiple approaches to organizing
+    inventory information and considered the
+    tradeoffs between application level processing
+    and database queries.
+  </p>
+
+  <p>
+    The enhancement also contributes to the fourth
+    course outcome by applying established computing
+    techniques to improve an existing application.
+    These changes deliver practical value by making
+    inventory information easier to search,
+    organize, and prioritize.
+  </p>
+
+  <h3>Challenges, Testing, and Reflection</h3>
+
+  <p>
+    The greatest challenge during this enhancement
+    was ensuring that the new features worked
+    together without disrupting existing
+    functionality.
+  </p>
+
+  <p>
+    Implementing searching and sorting required
+    maintaining a complete inventory list alongside
+    a separate list containing the records currently
+    displayed to the user.
+  </p>
+
+  <p>
+    This separation prevented searches from
+    unintentionally operating on previously
+    filtered results.
+  </p>
+
+  <p>
+    I also encountered implementation challenges
+    involving Android layout constraints, imports,
+    and connecting sorting options to the correct
+    algorithm methods.
+  </p>
+
+  <p>
+    My testing approach involved rapid prototyping.
+    I implemented each enhancement in small stages,
+    tested the application after each change, and
+    corrected issues before continuing to the
+    next feature.
+  </p>
+
+  <p>
+    Overall, this enhancement improved both the
+    functionality and quality of the Warehouse
+    Inventory application.
+  </p>
+
+  <p>
+    The application now does more than store and
+    display inventory records. It can process
+    inventory information in meaningful ways
+    according to user needs.
+  </p>
+
+  <p>
+    Implementing searching, sorting, and priority
+    based restocking strengthened my understanding
+    of applying algorithms and data structures
+    to practical software problems while considering
+    maintainability, efficiency, and future
+    scalability.
+  </p>
+
+</details>
 
 </section>
 

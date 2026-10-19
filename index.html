@@ -551,7 +551,166 @@
 
   </ul>
 
-  <p><strong>Enhancement narrative:</strong> To be added.</p>
+  <details>
+  <summary style="cursor:pointer; color:#2463a0;
+    font-weight:bold; padding:12px 0;">
+    Read Enhancement One Narrative
+  </summary>
+
+  <h3>Artifact Description and Selection</h3>
+
+  <p>
+    The artifact I selected is the Warehouse Inventory
+    Android application originally created for CS 360.
+    Developed using Java, XML, and SQLite, the application
+    supports user authentication, inventory management,
+    CRUD operations, and low stock notifications.
+  </p>
+
+  <p>
+    I selected this application because it demonstrates
+    multiple software development skills while providing
+    opportunities to improve its original architecture,
+    maintainability, and organization. Because the
+    application was already functional, I could focus
+    on improving the quality of the existing software
+    rather than simply adding more functionality.
+  </p>
+
+  <h3>Architectural Improvements</h3>
+
+  <p>
+    During my code review, I identified that the original
+    InventoryActivity handled too many responsibilities.
+    In addition to managing the user interface, it
+    communicated directly with DBHelper, processed
+    SQLite Cursors, converted database records into
+    InventoryItem objects, and performed inventory
+    operations.
+  </p>
+
+  <p>
+    My primary enhancement was introducing an
+    InventoryRepository class between InventoryActivity
+    and DBHelper. Inventory operations, including
+    retrieving, adding, updating, and deleting records,
+    now pass through this repository.
+  </p>
+
+  <p>
+    I also moved Cursor processing into the repository,
+    allowing InventoryActivity to focus on presentation
+    rather than the details of SQLite data access.
+    This reduced coupling and improved separation
+    of concerns, making the application easier to
+    maintain and expand.
+  </p>
+
+  <h3>Defensive Programming and Documentation</h3>
+
+  <p>
+    I strengthened input validation by explicitly
+    rejecting negative inventory quantities before
+    they reach the data layer. Although the Android
+    interface already restricted certain invalid
+    inputs, this additional validation ensures
+    that business rules are not dependent entirely
+    on the user interface.
+  </p>
+
+  <p>
+    I also improved documentation throughout the
+    application. Rather than describing individual
+    lines of code, my comments explain the purpose
+    and responsibilities of classes, methods, and
+    larger blocks of logic.
+  </p>
+
+  <p>
+    These improvements included documenting the
+    repository layer, data processing responsibilities,
+    input validation, RecyclerView behavior, and
+    database operations. The changes make the
+    application easier for other developers to
+    understand while keeping documentation focused
+    on the design and intent of the code.
+  </p>
+
+  <h3>Course Outcomes Demonstrated</h3>
+
+  <p>
+    This enhancement supports the third course outcome
+    through evaluating the existing architecture and
+    making design decisions based on software engineering
+    principles. Introducing a repository adds another
+    component to the application, but the tradeoff is
+    reduced coupling and clearer separation between
+    the presentation and data layers.
+  </p>
+
+  <p>
+    It also supports the fourth course outcome by
+    applying established engineering practices to
+    improve an existing solution while preserving
+    its functionality. The repository pattern,
+    defensive validation, and improved documentation
+    provide a stronger foundation for future
+    enhancements.
+  </p>
+
+  <p>
+    The additional input validation contributes to
+    the fifth course outcome by demonstrating defensive
+    programming and a more security conscious approach
+    to handling application data.
+  </p>
+
+  <h3>Challenges and Reflection</h3>
+
+  <p>
+    One of the most important lessons I learned from
+    this enhancement was the difference between
+    functional software and software designed to
+    remain maintainable as it grows.
+  </p>
+
+  <p>
+    When I originally developed the application,
+    my primary concern was meeting the functional
+    requirements of the CS 360 project. Revisiting
+    the application during my capstone allowed me
+    to evaluate the same code from a different
+    perspective and recognize opportunities to
+    improve its architecture.
+  </p>
+
+  <p>
+    The greatest challenge was modifying the
+    application's architecture without breaking
+    existing functionality. Moving database access
+    and Cursor processing into InventoryRepository
+    required evaluating which responsibilities
+    belonged in each application layer.
+  </p>
+
+  <p>
+    I approached the enhancement incrementally and
+    tested the application by adding, updating, and
+    deleting inventory records after refactoring.
+    These tests helped verify that the internal
+    architecture had improved without affecting
+    the original functionality.
+  </p>
+
+  <p>
+    Overall, this enhancement demonstrates how my
+    approach to software development has evolved
+    from simply making a program work to designing
+    software that is easier to understand, extend,
+    and maintain over time.
+  </p>
+
+</details>
 
 </section>
 
